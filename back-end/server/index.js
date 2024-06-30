@@ -103,9 +103,9 @@ app.post("/api/auth/signup", (req,res) => {
   }
  });
 
-app.post("/api/announce", async (req,res) => {
+app.post("/api/announce/:id", async (req,res) => {
 try {
-  const addedAnnounce = await saveAnnounceinDB(req.body)
+  const addedAnnounce = await saveAnnounceinDB(req.body,req.params.id)
   res.status(201).json(addedAnnounce)
 } catch (error) {
   res.status(500).send(error)

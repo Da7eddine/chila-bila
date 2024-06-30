@@ -22,7 +22,7 @@ function App() {
         <NavBar userAccount={userAccount} SetUserAccount={SetUserAccount} user={user}/>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/add-announcement" element={<AddAnnouncement/>} />
+          <Route path="/add-announcement" element={<AddAnnouncement user/>} />
           <Route path="/user/auth/sign-in" element={<SignIn  SetUserAccount={SetUserAccount} user={SetUser}/>}/>
           <Route path="/user/auth/sign-up" element={<SignUp/>}/>
           <Route path='/category/real-estate' element={<RealEstate/>}/>

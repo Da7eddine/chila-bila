@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import PopUp from '../PopUps/SignUpPop.jsx'
+import axios from 'axios';
 const AddAnnouncement = (props) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -19,9 +20,18 @@ const AddAnnouncement = (props) => {
     }
     setError('');
   };
+  const userID = localStorage.getItem('userID');
+  const addAnnounce = (announce)=>{
+    axios.post(`/api/announce`,announce)
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
 
   return (
-  
     <div className="flex justify-center items-center bg-gray-100 p-6" >
     {allowed && <PopUp allowed={setAllowed}/> }  
       <div className="bg-white p-8 rounded-lg shadow-lg w-96 ">
@@ -124,7 +134,17 @@ const AddAnnouncement = (props) => {
               placeholder="Enter your Phone Number"
             />
           </div>
-          <span type="submit" className="w-full bg-[#ff385c] text-white p-2 rounded hover:bg-[#fe4869]">
+          <span onClick={()=>{
+            addAnnounce({
+              title: title,
+              description: description,
+              category: category,
+              location: location,
+              price: price,
+              phone: phoneNumber,
+              users_id: userID
+            })
+          }} type="submit" className="w-full bg-[#ff385c] text-white p-2 rounded hover:bg-[#fe4869]">
             Submit
           </span>
         </form>

@@ -10,7 +10,7 @@ const SignIn = (props) => {
   const [error, setError] = useState('');
 
   const Login =()=>{
- axios.get(`http://127.0.0.1:3000/api/auth/signin/${userName}`)
+ axios.get(`http://localhost:3000/api/auth/signin/${userName}`)
  .then(res => props.user(res.data))
  .catch((err)=>console.log(err))
   }
