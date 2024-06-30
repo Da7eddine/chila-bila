@@ -58,7 +58,7 @@ const UserAnnouncementDetail = () => {
 
 
   const handleUpdate = () => {
-    // here is the logic of updating the announce
+    navigate("/update-announcement", { state: { announcement } });
   };
 
   const handleDelete = () => {

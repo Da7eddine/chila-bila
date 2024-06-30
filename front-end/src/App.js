@@ -15,7 +15,7 @@ import DetailAnnoucement from './components/pages/detailAnnoucement.jsx';
 import { jwtDecode } from "jwt-decode";
 import UserAnnouncementDetail from './components/pages/UserAnnouncementDetailDetail.jsx';
 import MyAnnouncement from './components/pages/MyAnnouncement.jsx';
-
+import UpdateAnnounce from './components/pages/UpdateAnnouncement.jsx';
 function App() {
   const [userAccount,SetUserAccount]=useState(false)
   const [user,SetUser]=useState('')
@@ -37,6 +37,7 @@ function App() {
         <NavBar userAccount={userAccount} SetUserAccount={SetUserAccount} user={user}/>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path ="/update-announcement" element={<UpdateAnnounce userId={userId}/>}/>
           <Route path="/add-announcement" element={<AddAnnouncement userId={userId}/>} />
           <Route path="/user/auth/sign-in" element={<SignIn  SetUserAccount={SetUserAccount} user={SetUser}/>}/>
           <Route path="/user/auth/sign-up" element={<SignUp/>}/>
